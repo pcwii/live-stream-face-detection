@@ -5,7 +5,8 @@ cascPath = 'haarcascade_frontalface_dataset.xml'  # dataset
 faceCascade = cv2.CascadeClassifier(cascPath)
 
 video_capture = cv2.VideoCapture(0)  # 0 for web camera live stream
-#video_capture = cv2.VideoCapture('rtsp://username:password@ip_address:554/h264Preview_01_sub')
+# video_capture = cv2.VideoCapture('rtsp://username:password@ip_address:554/h264Preview_01_sub')
+# video_capture = cv2.VideoCapture('rtsp://192.168.0.22:8554')
 
 
 
