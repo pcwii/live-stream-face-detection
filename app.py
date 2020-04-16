@@ -1,6 +1,8 @@
 
 from flask import Flask, render_template, Response
 from camera import camera_stream
+import socket
+
 
 app = Flask(__name__)
 
@@ -25,9 +27,16 @@ def video_feed():
     return Response(gen_frame(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+def get_IP():
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(("8.8.8.8", 80))
+    ip_Address = s.getsockname()[0]
+    s.close()
+    return ip_Address
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', threaded=True)
+    print(get_IP())
+    app.run(host=get_IP(), threaded=True)
 
 
 
